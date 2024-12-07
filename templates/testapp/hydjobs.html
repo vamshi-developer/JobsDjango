@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyd Jobs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        #specialp{
+            color: red;
+            text-align: center;
+            font-size: 30px;
+        }
+        #a2{
+            font-size: 40px;
+            font-weight: 400;
+        }
+        table{
+            color: palevioletred;
+            background-color: palegreen;
+            text-align: center;
+
+        }
+        p{
+            text-align: center;
+        }
+        .div{
+            text-align:  center;
+        }
+    </style>
+</head>
+<body>
+    <p id="a2">Hyderabad Jobs Information</p>
+    {% if jobs_list%}
+    <div class="div">
+        <table border="3">
+            <thead>
+                <th>Date</th>
+                <th>Company</th>
+                <th>Title</th>
+                <th>Eligibility</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+            </thead>
+            {% for job in jobs_list %}
+            <tr>
+                <td>{{job.date}}</td>
+                <td>{{job.company}}</td>
+                <td>{{job.title}}</td>
+                <td>{{job.eligibility}}</td>
+                <td>{{job.address}}</td>
+                <td>{{job.email}}</td>
+                <td>{{job.phonenumber}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <p id="specialp">No Jobs in Hyderabad............</p>
+    {% endif %}
+
+</body>
+</html>
